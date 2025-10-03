@@ -55,15 +55,15 @@ When designing chips, it’s dangerous to jump straight into RTL or physical des
 
 **- Foundation for Verification:** Functional modelling is also used to define expected behavior (golden reference models), which later helps in verifying that the RTL matches the intended functionality.
 
-For BabySoC, functional modelling means:
+#### For BabySoC, functional modelling means:
 
-Describing the CPU, memory, and simple interconnect behavior in Verilog.
+- Describing the CPU, memory, and simple interconnect behavior in Verilog.
 
-Running simulations in **Icarus Verilog**.
+- Running simulations in **Icarus Verilog**.
 
-Viewing signal activity in **GTKWave** to confirm that the SoC components talk to each other as expected.
+- Viewing signal activity in **GTKWave** to confirm that the SoC components talk to each other as expected.
 
-This stage ensures that by the time you write RTL or attempt physical implementation, the design is already validated logically.
+- This stage ensures that by the time you write RTL or attempt physical implementation, the design is already validated logically.
 
 ## Summary
 
