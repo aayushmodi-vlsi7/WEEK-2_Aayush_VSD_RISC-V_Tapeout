@@ -46,7 +46,7 @@ Real SoCs are extremely complex, with millions or even billions of transistors a
 
 - **Error-Friendly Environment:** Mistakes in BabySoC are easier to catch and fix, which is important for learning. Debugging a real SoC would be far more difficult.
 
-In short, BabySoC is like a **miniature classroom SoC**, simple enough to be manageable, but realistic enough to teach the exact principles used in real-world SoC designs.
+In short, BabySoC is like a miniature classroom SoC, simple enough to be manageable, but realistic enough to teach the exact principles used in real-world SoC designs.
 
 ## The Role of Functional Modelling Before RTL and Physical Design
 
