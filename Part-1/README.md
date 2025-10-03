@@ -11,22 +11,22 @@ To make the process of learning SoC design simpler, we use a model called BabySo
 ## Main Components of an SoC
 A typical SoC consists of:
 
-- ### CPU (Processor):
+- **CPU (Processor):**
   The central processing unit is the brain of the SoC. It executes instructions, manages operations, and controls the overall functioning of the system. Some SoCs have a single CPU core, while modern ones often include multiple cores for parallel processing.
 
-- ### Memory: 
+- **Memory:** 
   SoCs integrate different types of memory, such as on-chip SRAM for fast temporary storage and ROM for permanent data like boot instructions. They may also connect to external memory like DRAM for larger storage needs. Memory plays a vital role in storing both program code and runtime data.
 
-- ### Peripherals:
+- **Peripherals:**
   These are the interfaces that connect the SoC to the outside world. Examples include UART, SPI, I2C, GPIOs, timers, and ADCs. Peripherals enable interaction with sensors, displays, communication modules, and user inputs, making the SoC useful in practical applications.
 
-- ### Interconnect (Bus System): 
+- **Interconnect (Bus System):** 
   The bus system is the backbone that links CPU, memory, and peripherals. It ensures data moves efficiently within the SoC. Modern SoCs often use advanced interconnects like AMBA (AXI, AHB, APB) to manage communication between multiple subsystems.
 
-- ### Clock and Reset Circuits
+- **Clock and Reset Circuits:**
   These provide timing signals that synchronize the entire system and ensure all components work in harmony. The reset circuit helps initialize the chip into a known state whenever it is powered on or restarted.
 
-- ### Interrupt Controller
+- **Interrupt Controller:**
   The interrupt controller manages signals from peripherals that need urgent attention from the CPU. This allows the processor to respond quickly to important events without continuously checking all devices.
 
 These components together allow the SoC to perform as a self-contained computing system.
