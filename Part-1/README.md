@@ -12,18 +12,25 @@ To make the process of learning SoC design simpler, we use a model called **Baby
 A typical SoC consists of:
 
 - ### CPU (Processor):
-The brain of the chip that executes instructions and manages operations.
+  The central processing unit is the brain of the SoC. It executes instructions, manages operations, and controls the overall functioning of the system. Some SoCs have a single CPU core, while modern ones often include multiple cores for parallel processing.
 
 - ### Memory: 
-Includes on-chip SRAM, ROM, and interfaces for external memory (like DRAM) to store data and instructions.
+  SoCs integrate different types of memory, such as on-chip SRAM for fast temporary storage and ROM for permanent data like boot instructions. They may also connect to external memory like DRAM for larger storage needs. Memory plays a vital role in storing both program code and runtime data.
 
-- ### Peripherals: 
-Interfaces that allow the SoC to communicate with the outside world (UART, SPI, I2C, GPIO, timers, etc.).
+- ### Peripherals:
+  These are the interfaces that connect the SoC to the outside world. Examples include UART, SPI, I2C, GPIOs, timers, and ADCs. Peripherals enable interaction with sensors, displays, communication modules, and user inputs, making the SoC useful in practical applications.
 
 - ### Interconnect (Bus System): 
-The communication backbone that links the CPU, memory, and peripherals together efficiently.
+  The bus system is the backbone that links CPU, memory, and peripherals. It ensures data moves efficiently within the SoC. Modern SoCs often use advanced interconnects like AMBA (AXI, AHB, APB) to manage communication between multiple subsystems.
+
+- ### Clock and Reset Circuits
+  These provide timing signals that synchronize the entire system and ensure all components work in harmony. The reset circuit helps initialize the chip into a known state whenever it is powered on or restarted.
+
+  - ### Interrupt Controller
+    The interrupt controller manages signals from peripherals that need urgent attention from the CPU. This allows the processor to respond quickly to important events without continuously checking all devices.
 
 These components together allow the SoC to perform as a self-contained computing system.
+
 ## Why BabySoC is a Simplified Model for Learning SoC Concepts
 Real SoCs are extremely complex, with millions or even billions of transistors and multiple subsystems like CPUs, GPUs, DSPs, memory controllers, communication interfaces, and security modules all integrated together. For someone new to SoC design, this level of complexity can be overwhelming and nearly impossible to simulate on basic tools.
 
@@ -39,7 +46,7 @@ Real SoCs are extremely complex, with millions or even billions of transistors a
 
 - **Error-Friendly Environment:** Mistakes in BabySoC are easier to catch and fix, which is important for learning. Debugging a real SoC would be far more difficult.
 
-In short, BabySoC is like a “miniature classroom SoC” — simple enough to be manageable, but realistic enough to teach the exact principles used in real-world SoC designs.
+In short, BabySoC is like a **miniature classroom SoC**, simple enough to be manageable, but realistic enough to teach the exact principles used in real-world SoC designs.
 
 ## The Role of Functional Modelling Before RTL and Physical Design
 
@@ -47,7 +54,7 @@ When designing chips, it’s dangerous to jump straight into RTL or physical des
 
 - **First Layer of Verification:** Functional models allow you to describe the behavior of the system at a higher level (what the system should do), without worrying about how exactly the gates and flip-flops are implemented.
 
-- **Catch Errors Early:** Most logical or architectural mistakes are found at this stage. If functional modelling is skipped, errors may only appear during RTL simulation or physical design — which is much more expensive and time-consuming to fix.
+- **Catch Errors Early:** Most logical or architectural mistakes are found at this stage. If functional modelling is skipped, errors may only appear during RTL simulation or physical design, which is much more expensive and time-consuming to fix.
 
 - **Bridge Between Concept and RTL:** Functional modelling translates the conceptual block diagrams into an executable model. This ensures that when you move to RTL, you already know the logic flow is correct.
 
