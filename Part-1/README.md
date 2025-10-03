@@ -4,7 +4,10 @@
 </div>  
 
 ## What is a System-on-Chip (SoC)?
-A System-on-Chip (SoC) is an integrated circuit that brings together all the essential parts of a computer system onto a single chip. Instead of having separate components like CPU, memory, and peripherals placed on different boards, SoCs combine them into one compact design. This makes SoCs faster, more power-efficient, and cost-effective — which is why they are widely used in smartphones, IoT devices, and modern embedded systems.
+A **System-on-Chip (SoC)** is an integrated circuit that brings together all the essential parts of a computer system onto a single chip. Instead of having separate components like CPU, memory, and peripherals placed on different boards, SoCs combine them into one compact design. This makes SoCs faster, more power-efficient, and cost-effective — which is why they are widely used in smartphones, IoT devices, and modern embedded systems.
+
+To make the process of learning SoC design simpler, we use a model called **BabySoC**. BabySoC is a small-scale version of a real SoC. It contains only the most essential parts such as a processor, memory, a few basic peripherals, and a simple interconnect. Unlike commercial SoCs, it does not include advanced features like multiple cores or complex bus structures. This reduced complexity makes BabySoC easy to study and simulate using tools like Icarus Verilog and GTKWave. It gives students a clear way to understand how the main building blocks of an SoC work together while avoiding the overwhelming complexity of industry-grade designs. BabySoC can be seen as a teaching model: simple enough to be manageable, yet realistic enough to prepare learners for understanding real-world chip architectures.
+
 ## Main Components of an SoC
 A typical SoC consists of:
 
