@@ -26,8 +26,8 @@ A typical SoC consists of:
 - ### Clock and Reset Circuits
   These provide timing signals that synchronize the entire system and ensure all components work in harmony. The reset circuit helps initialize the chip into a known state whenever it is powered on or restarted.
 
-  - ### Interrupt Controller
-    The interrupt controller manages signals from peripherals that need urgent attention from the CPU. This allows the processor to respond quickly to important events without continuously checking all devices.
+- ### Interrupt Controller
+  The interrupt controller manages signals from peripherals that need urgent attention from the CPU. This allows the processor to respond quickly to important events without continuously checking all devices.
 
 These components together allow the SoC to perform as a self-contained computing system.
 
