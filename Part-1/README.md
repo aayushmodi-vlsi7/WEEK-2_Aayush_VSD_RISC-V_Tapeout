@@ -29,15 +29,15 @@ Real SoCs are extremely complex, with millions or even billions of transistors a
 
 #### BabySoC bridges this gap.
 
-**- Reduced Complexity:** BabySoC strips away advanced features and focuses only on the essentials — CPU, memory, basic peripherals, and a simple interconnect. This makes the design smaller and easier to analyze.
+- **Reduced Complexity:** BabySoC strips away advanced features and focuses only on the essentials — CPU, memory, basic peripherals, and a simple interconnect. This makes the design smaller and easier to analyze.
 
-**- Easier to Simulate:** Full-scale SoCs need high-end simulators and large computing power. BabySoC can be simulated on lightweight tools like Icarus Verilog and observed in GTKWave, which is accessible for students.
+- **Easier to Simulate:** Full-scale SoCs need high-end simulators and large computing power. BabySoC can be simulated on lightweight tools like Icarus Verilog and observed in GTKWave, which is accessible for students.
 
-**- Step-by-Step Learning:** Instead of diving straight into industry-scale designs, BabySoC gives a training environment where one can learn how each component interacts. Once this foundation is built, moving to advanced SoC concepts (like cache systems, multiple cores, and complex bus architectures) becomes easier.
+- **Step-by-Step Learning:** Instead of diving straight into industry-scale designs, BabySoC gives a training environment where one can learn how each component interacts. Once this foundation is built, moving to advanced SoC concepts (like cache systems, multiple cores, and complex bus architectures) becomes easier.
 
-**- Closer to Real Hardware:** Unlike purely theoretical models, BabySoC provides a hands-on platform to test concepts practically. For example, you can actually run simulations to see how data moves from CPU → Memory → Peripheral.
+- **Closer to Real Hardware:** Unlike purely theoretical models, BabySoC provides a hands-on platform to test concepts practically. For example, you can actually run simulations to see how data moves from CPU → Memory → Peripheral.
 
-**- Error-Friendly Environment:** Mistakes in BabySoC are easier to catch and fix, which is important for learning. Debugging a real SoC would be far more difficult.
+- **Error-Friendly Environment:** Mistakes in BabySoC are easier to catch and fix, which is important for learning. Debugging a real SoC would be far more difficult.
 
 In short, BabySoC is like a “miniature classroom SoC” — simple enough to be manageable, but realistic enough to teach the exact principles used in real-world SoC designs.
 
@@ -45,15 +45,15 @@ In short, BabySoC is like a “miniature classroom SoC” — simple enough to b
 
 When designing chips, it’s dangerous to jump straight into RTL or physical design without first checking if the design works logically. This is where **functional modelling** plays a key role.
 
-**-First Layer of Verification:** Functional models allow you to describe the behavior of the system at a higher level (what the system should do), without worrying about how exactly the gates and flip-flops are implemented.
+- **First Layer of Verification:** Functional models allow you to describe the behavior of the system at a higher level (what the system should do), without worrying about how exactly the gates and flip-flops are implemented.
 
-**-Catch Errors Early:** Most logical or architectural mistakes are found at this stage. If functional modelling is skipped, errors may only appear during RTL simulation or physical design — which is much more expensive and time-consuming to fix.
+- **Catch Errors Early:** Most logical or architectural mistakes are found at this stage. If functional modelling is skipped, errors may only appear during RTL simulation or physical design — which is much more expensive and time-consuming to fix.
 
-**-Bridge Between Concept and RTL:** Functional modelling translates the conceptual block diagrams into an executable model. This ensures that when you move to RTL, you already know the logic flow is correct.
+- **Bridge Between Concept and RTL:** Functional modelling translates the conceptual block diagrams into an executable model. This ensures that when you move to RTL, you already know the logic flow is correct.
 
-**-Faster Iterations:** Since functional models are abstracted and don’t include low-level details, they simulate quickly. You can run multiple tests and modify the design easily before locking down the RTL.
+- **Faster Iterations:** Since functional models are abstracted and don’t include low-level details, they simulate quickly. You can run multiple tests and modify the design easily before locking down the RTL.
 
-**- Foundation for Verification:** Functional modelling is also used to define expected behavior (golden reference models), which later helps in verifying that the RTL matches the intended functionality.
+- **Foundation for Verification:** Functional modelling is also used to define expected behavior (golden reference models), which later helps in verifying that the RTL matches the intended functionality.
 
 #### For BabySoC, functional modelling means:
 
