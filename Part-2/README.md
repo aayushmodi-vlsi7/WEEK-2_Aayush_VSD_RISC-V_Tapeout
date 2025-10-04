@@ -162,3 +162,21 @@ It demonstrates the interaction between the CPU (RVMyth), the DAC, and the PLL.
 
 - The PLL successfully locks and stabilizes the system clock.
 
+## Instructions
+
+### Register Initialization
+
+At the start of execution, the program sets up the working registers. The step size (r9) is defined as 1, the loop boundary (r10) as 43, the counter (r11) begins at 0, and the DAC accumulator (r17) is cleared to 0. This prepares the system for the upcoming sequence of operations.
+
+### Accumulation Phase
+
+The counter gradually increases from 0 towards the upper limit. With each increment, its value is added into r17. This creates a progressive growth in the DAC input register, forming the ramp-up behavior in the output signal.
+
+### Maximum Accumulation
+
+Once the counter reaches 43, the accumulator (r17) hits its highest point at 946. This marks the peak of the digital waveform before the descent begins.
+
+### Descent and Oscillations
+
+After the peak, the counter is reduced step by step. With every decrement, the accumulator is also reduced. This produces a controlled decline in r17, generating an oscillatory down-ramp until the counter value drops back to 1.
+
