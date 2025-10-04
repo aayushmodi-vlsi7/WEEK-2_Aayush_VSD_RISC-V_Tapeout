@@ -215,3 +215,21 @@ This means that a higher digital value produces a proportionally higher output v
 | 903                      | 0.882 V                     |
 | 946                      | 0.925 V                     |
 
+## Summary
+
+The VSDBabySoC project provided hands-on experience in building and simulating a small-scale System-on-Chip by integrating a RISC-V CPU, a PLL, and a DAC. I learned how these modules interact within a top-level design, how the DAC converts digital CPU outputs into analog signals, and how the PLL stabilizes the system clock. Converting TL-Verilog to standard Verilog emphasized the importance of tool compatibility, while running simulations with Icarus Verilog and analyzing waveforms in GTKWave reinforced the process of verifying functional correctness.
+
+#### Key Learnings from this Week:
+
+- Understanding the flow of data from CPU to DAC and mixed-signal interactions.
+
+- Integration of multiple IP blocks into a cohesive SoC design.
+
+- Importance of stable clock generation using PLLs for reliable CPU operation.
+
+- Setting up testbenches and running pre-synthesis simulations to validate RTL.
+
+- Analyzing simulation outputs and waveforms to verify system behavior.
+
+- Familiarity with SoC design methodology, verification flow, and functional modeling.
+
