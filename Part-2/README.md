@@ -60,7 +60,7 @@ To verify the design:
 1. The **testbench** provides input stimuli like reset and reference signals.  
 2. The simulation runs through **Icarus Verilog (iverilog)** and **vvp**.  
 3. Outputs are dumped into a `.vcd` file.  
-4. **GTKWave** is used to view the waveforms.  
+4. GTKWave is used to view the waveforms.  
 
 Through this, I observed:
 - How the SoC reacts to reset,  
@@ -75,10 +75,47 @@ Through this, I observed:
 - **Dataflow Insight**: Understood how processor outputs are captured by peripherals.  
 - **Verification Practice**: Hands-on experience with compiling, simulating, and analyzing waveforms in GTKWave.  
 
----
+## 1. Cloning the Repository
+   To begin the setup, we first need to fetch the VSDBabySoC repository. This will provide the complete SoC source files, including the CPU (RVMyth), DAC, PLL, and testbench.
+   ```bash
+cd ~/VLSI
+git clone https://github.com/manili/VSDBabySoC.git
+cd VSDBabySoC/
+```
+## 2. Converting TL-Verilog to Verilog
+   Since the RVMyth processor is written in TL-Verilog (.tlv), it cannot be directly simulated. Therefore, we must convert it into standard Verilog (.v) using the SandPiper-SaaS tool. This step ensures compatibility with simulation tools like Icarus Verilog.
+   ```bash
+# Install tools
+sudo apt update
+sudo apt install python3-venv python3-pip
 
-## Conclusion
-Even though the VSDBabySoC is small and educational in nature, it captures the essence of real SoCs.  
-It not only demonstrates digital processing but also shows how clock generation and analog interfacing can be part of the same chip.  
-By simulating this project, I built confidence in understanding SoC fundamentals and functional verification techniques.
+# Create virtual env
+python3 -m venv sp_env
+source sp_env/bin/activate
+
+# Install SandPiper-SaaS
+pip install pyyaml click sandpiper-saas
+
+# Convert TLV → Verilog
+sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/
+```
+
+## 3. Running Pre-Synthesis Simulation
+   The pre-synthesis simulation step validates that the RTL behaves as expected before moving to synthesis. Here, we test the design only at the functional level, ignoring delays and physical constraints. This helps verify correct integration of CPU, PLL, and DAC within the SoC.
+   ```bash
+mkdir -p output/pre_synth_sim
+
+iverilog -o output/pre_synth_sim/pre_synth_sim.out \
+  -DPRE_SYNTH_SIM \
+  -I src/include -I src/module \
+  src/module/testbench.v
+
+cd output/pre_synth_sim
+./pre_synth_sim.out
+```
+## 4. Viewing Waveforms with GTKWave
+   After simulation, the results are saved in a .vcd file, which can be analyzed using GTKWave. The waveform provides visual confirmation of the CPU execution, PLL clock generation, and DAC output transitions.
+   ```bash
+gtkwave output/pre_synth_sim/pre_synth_sim.vcd
+```
 
