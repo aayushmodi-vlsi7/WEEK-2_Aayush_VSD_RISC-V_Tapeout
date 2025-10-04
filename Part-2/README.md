@@ -180,3 +180,38 @@ Once the counter reaches 43, the accumulator (r17) hits its highest point at 946
 
 After the peak, the counter is reduced step by step. With every decrement, the accumulator is also reduced. This produces a controlled decline in r17, generating an oscillatory down-ramp until the counter value drops back to 1.
 
+### Final Steady State
+
+At the end of the sequence, the accumulator is adjusted once more, and the program enters an infinite loop. From this point onward, the DAC input remains stable, holding a constant output voltage.
+
+## Execution Flow of the Program
+
+1. **Initial Growth**  
+   The counter starts small and gradually builds up. With every increment, the DAC register collects these values, causing a steady rise in its output. By the time the counter has stepped through 42 cycles, the register has accumulated close to 903.  
+
+2. **Top of the Curve**  
+   When the counter hits 43, the accumulation reaches its highest point. At this instant, the register value touches around 946, which represents the maximum in the entire sequence.  
+
+3. **Falling Transition**  
+   After the peak, the program begins reducing the counter instead of increasing it. Each subtraction reflects directly in the DAC register, which now begins to drop step by step, mirroring the earlier rise but in reverse.  
+
+4. **Final Holding State**  
+   Once the counter has come all the way down, the program no longer changes the value. The system remains in a repeating loop, leaving the DAC register frozen at its last steady number.
+
+## Calculating DAC Analog Output
+
+The DAC (Digital-to-Analog Converter) converts a digital value into a corresponding analog voltage. Specifically, for the digital register r17, the output voltage can be calculated as follows:
+
+First, the digital value is normalized by dividing it by the maximum possible digital value (1023 for a 10-bit DAC). Then, it is scaled by the reference voltage span to obtain the analog voltage:
+
+```math
+V_{OUT} = \frac{r_{17}}{1023} \times V_{REF\_SPAN} \quad (\text{with } V_{REF\_SPAN} = 1.0\ \text{V})
+```
+
+This means that a higher digital value produces a proportionally higher output voltage, with the maximum output equal to the reference voltage span.
+
+   | Digital Input ( r_{17} ) | DAC Output ( V_\text{OUT} ) |
+| ------------------------ | --------------------------- |
+| 903                      | 0.882 V                     |
+| 946                      | 0.925 V                     |
+
