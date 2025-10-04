@@ -1,3 +1,4 @@
+
 <div align="center">
   
 # Week 2 – BabySoC Fundamentals & Functional Modelling
@@ -118,4 +119,46 @@ cd output/pre_synth_sim
    ```bash
 gtkwave output/pre_synth_sim/pre_synth_sim.vcd
 ```
+<img width="2777" height="1618" alt="GTKwaveform" src="https://github.com/user-attachments/assets/0bfe6ac8-7342-46c7-92b7-2dd336b19d1f" />
+
+The waveform shown above comes from the pre-synth simulation (pre_synth_sim.vcd) of the VSDBabySoC project.
+It demonstrates the interaction between the CPU (RVMyth), the DAC, and the PLL.
+
+#### 1. CPU Activity
+
+The signals CPU_dmem_addr, CPU_dmem_rd_data, and CPU_ld_data toggle as the CPU fetches and executes instructions.
+
+These transitions indicate instruction fetches, memory accesses, and data loads during program execution.
+
+The DAC input bus D[9:0] shows numeric values being written from the CPU output register into the DAC.
+
+#### 2. DAC Output
+
+The DAC takes the 10-bit digital input (Dext[10:0] / D[9:0]) from the CPU and generates an analog-equivalent output (OUT).
+
+The waveform for OUT appears as a gradual ramp and fall pattern, consistent with the instruction sequence (ramp-up, peak, ramp-down).
+
+This validates that the DAC is correctly translating CPU output into the analog domain.
+
+#### 3. PLL Behavior
+
+The PLL-related signals (VCO_IN, period, refpd) show how the phase-locked loop aligns its frequency with the reference clock.
+
+At the beginning, there are small fluctuations as the PLL locks to the reference.
+
+After a short settling time, the PLL stabilizes and provides a steady clock (CLK) to the CPU.
+
+The value of period ≈ 35 confirms the generated clock frequency, while refpd ≈ 283 corresponds to the phase difference measurements.
+
+#### 4. System-Level View
+
+Together, these signals prove that the CPU is active, the DAC output responds correctly, and the PLL provides stable clocking.
+
+The simulation verifies functional correctness before synthesis:
+
+The CPU is able to fetch/execute instructions.
+
+The DAC output follows the expected waveform shape.
+
+The PLL successfully locks and stabilizes the system clock.
 
